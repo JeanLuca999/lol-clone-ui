@@ -332,6 +332,7 @@ const NavItem = styled.button`
     color: white;
     font-size: 16px;
     border: 0;
+    border-radius: 0;
     width: 40px;
     height: 40px;
     cursor: pointer;
