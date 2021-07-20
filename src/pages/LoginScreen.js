@@ -5,6 +5,8 @@ import facebookIcon from '../assets/images/facebook-icon.svg';
 import googleIcon from '../assets/images/google-icon.svg';
 import appleIcon from '../assets/images/apple-icon.svg';
 import lolLogo from '../assets/images/lol-logo.svg';
+import rightArrow from '../assets/images/right-arrow.svg';
+import rightArrowActive from '../assets/images/right-arrow-active.svg';
 
 import { useState } from "react";
 
@@ -12,9 +14,19 @@ import { useState } from "react";
 function LoginScreen() {
 
     const [keepLogged, setKeepLogged] = useState(false)
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
 
     function handleKeepLogged() {
         setKeepLogged(!keepLogged)
+    }
+
+    function handleUserName(event) {
+        setUserName(event.target.value)
+    }
+
+    function handlePassword(event) {
+        setPassword(event.target.value)
     }
 
     return(
@@ -24,8 +36,18 @@ function LoginScreen() {
                 <ElementsContainer>
                     <LolLogo src={lolLogo}></LolLogo>
                     <Title>Fazer login</Title>
-                    <Input type="text" placeholder="NOME DE USUÁRIO" content="NOME DE USUÁRIO"></Input>
-                    <Input type="password" placeholder="SENHA" content="SENHA"></Input>
+                    <Input
+                        type="text"
+                        placeholder="NOME DE USUÁRIO"
+                        content="NOME DE USUÁRIO"
+                        onChange={(e) => handleUserName(e)}
+                    ></Input>
+                    <Input
+                        type="password"
+                        placeholder="SENHA"
+                        content="SENHA"
+                        onChange={(e) => handlePassword(e)}
+                    ></Input>
 
                     <IconsWrapper>
                         <Icon>
@@ -42,6 +64,10 @@ function LoginScreen() {
                     <KeepLogged>
                         <CheckBox keepLogged={keepLogged} onClick={handleKeepLogged}></CheckBox> Manter login
                     </KeepLogged>
+                    {
+                        (password && userName) ? <ButtonLoginActive><img src={rightArrowActive}></img></ButtonLoginActive>
+                        : <ButtonLogin><img src={rightArrow}></img></ButtonLogin>
+                    }
 
                 </ElementsContainer>
                 <BackgroundContainer>
@@ -224,5 +250,32 @@ const CheckBox = styled.button`
         top: 0;
         left: 3px;
         display: ${ props => props.keepLogged ? 'block' : 'none'};
+    }
+`
+
+const ButtonLogin = styled.button`
+    width: 65px;
+    height: 65px;
+    border-radius: 20px;
+    border: 2px solid rgb(232,232,232);
+    background-color: transparent;
+    margin-top: 103px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        display: block;
+        width: 32px;
+        height: 32px;
+    }
+`
+
+const ButtonLoginActive = styled(ButtonLogin)`
+    background-color: rgb(209,54,57);
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(188,37,42);
     }
 `
