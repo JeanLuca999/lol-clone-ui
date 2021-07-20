@@ -127,15 +127,30 @@ const Icon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     &:nth-child(1) {
         margin-left: 0;
         background-color: rgb(24,119,242);
+
+        &:hover {
+            background-color: rgb(9,102,222);
+        }
     }
 
     &:nth-child(2) {
         background-color: #fff;
         border: 1px solid lightgray;
+
+        &:hover {
+            background-color: rgb(247,247,247);
+        }
+    }
+
+    &:nth-child(3) {
+        &:hover {
+            background-color: rgb(20,20,20);
+        }
     }
 
     img {
