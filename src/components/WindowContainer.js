@@ -1,7 +1,8 @@
 import styled from "styled-components"  
 
 const WindowContainer = styled.div`
-    width: 1280px;
+    max-width: 1200px;
+    width:80vw;
     height: 720px;
     margin: 0 auto;
     background-color: #fff;

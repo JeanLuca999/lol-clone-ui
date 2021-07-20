@@ -7,6 +7,7 @@ import appleIcon from '../assets/images/apple-icon.svg';
 import lolLogo from '../assets/images/lol-logo.svg';
 import rightArrow from '../assets/images/right-arrow.svg';
 import rightArrowActive from '../assets/images/right-arrow-active.svg';
+import configIcon from '../assets/images/config-icon.svg';
 
 import { useState } from "react";
 
@@ -78,10 +79,13 @@ function LoginScreen() {
                 </ElementsContainer>
                 <BackgroundContainer>
                     <Nav>
-                        <NavItem></NavItem>
+                        <NavItem active={true}></NavItem>
                         <NavItem>?</NavItem>
                         <NavItem>X</NavItem>
                     </Nav>
+                    <ConfigIcon>
+                        <img src={configIcon}></img>
+                    </ConfigIcon>
                 </BackgroundContainer>
             </Wrapper>
         </WindowContainer>
@@ -110,17 +114,15 @@ const ElementsContainer = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    flex-grow: 1;
 `
 
 const BackgroundContainer = styled.div`
     background-image: url('${LoginScreenWallpaper}');
     background-size: cover;
     background-position: center;
-    width: 60%;
     height: 100%;
-    flex-grow: 1;
-    max-width: 880px;
+    width: 100%;
+    position: relative;
 `
 
 const Title = styled.h1`
@@ -332,6 +334,7 @@ const NavItem = styled.button`
     border: 0;
     width: 40px;
     height: 40px;
+    cursor: pointer;
 
     &:hover {
         background-color: rgba(255,255,255,0.1);
@@ -341,6 +344,7 @@ const NavItem = styled.button`
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: ${props => props.active ? 'rgba(255,255,255,0.1)' : '' };
         &::after {
             content: '';
             display: block;
@@ -354,5 +358,24 @@ const NavItem = styled.button`
         &:hover {
             background-color: rgb(209,54,57);
         }
+    }
+`
+
+const ConfigIcon = styled.div`
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    &:hover {
+        background-color: rgba(255,255,255,0.6);
     }
 `
