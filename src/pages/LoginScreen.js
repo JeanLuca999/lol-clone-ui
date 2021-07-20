@@ -52,13 +52,19 @@ function LoginScreen() {
 
                     <IconsWrapper>
                         <Icon>
-                          <img src={facebookIcon} alt="facebook"></img>
+                            <a href="https://facebook.com" target="_blank">
+                                <img src={facebookIcon} alt="facebook"></img>
+                            </a>
                         </Icon>
                         <Icon>
-                            <img src={googleIcon} alt="google"></img>
+                            <a href="https://mail.google.com" target="_blank">
+                                <img src={googleIcon} alt="google"></img>
+                            </a>
                         </Icon>
                         <Icon>
-                            <img src={appleIcon} alt="apple"></img>
+                            <a href="https://secure2.store.apple.com/" target="_blank">
+                                <img src={appleIcon} alt="apple"></img>
+                            </a>
                         </Icon>
                     </IconsWrapper>
 
