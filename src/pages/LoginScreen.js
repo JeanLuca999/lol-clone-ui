@@ -69,9 +69,19 @@ function LoginScreen() {
                         : <ButtonLogin><img src={rightArrow}></img></ButtonLogin>
                     }
 
+                    <HelpSection>
+                        <h3>Não Consegue Iniciar Sessão?</h3>
+                        <h3>Criar Conta</h3>
+                        <Version>v 36.0.0</Version>
+                    </HelpSection>
+
                 </ElementsContainer>
                 <BackgroundContainer>
-
+                    <Nav>
+                        <NavItem></NavItem>
+                        <NavItem>?</NavItem>
+                        <NavItem>X</NavItem>
+                    </Nav>
                 </BackgroundContainer>
             </Wrapper>
         </WindowContainer>
@@ -277,5 +287,72 @@ const ButtonLoginActive = styled(ButtonLogin)`
 
     &:hover {
         background-color: rgb(188,37,42);
+    }
+`
+
+const HelpSection = styled.div`
+    width: 288px;
+    position: relative;
+    margin-top: 68px;
+
+    h3 {
+        text-transform: uppercase;
+        font-size: 10px;
+        text-align: center;
+        color: rgb(178,178,178);
+        font-weight: 900;
+        cursor: pointer;
+        margin-bottom: 5px;
+
+        &:hover, &:focus {
+            color: rgb(17,17,17);
+        }
+    }
+`
+
+const Version = styled.h3`
+    position: absolute;
+    right: 0;
+
+    &:hover, &:focus {
+        color: rgb(231,231,231);
+    }
+`
+
+const Nav = styled.nav`
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+`
+
+const NavItem = styled.button`
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    border: 0;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    &:nth-child(1) {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 10px;
+            height: 1px;
+            background-color: white;
+        }
+    }
+    &:nth-child(3) {
+        &:hover {
+            background-color: rgb(209,54,57);
+        }
     }
 `
