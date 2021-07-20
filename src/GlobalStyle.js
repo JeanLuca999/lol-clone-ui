@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Mulish', sans-serif;
     }
 
     body {
@@ -16,6 +17,9 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        font-family: 'Mulish', sans-serif;
+        font-size: 100%;
     }
 `
 
