@@ -6,7 +6,7 @@ const WindowContainer = styled.div`
     width:80vw;
     height: 720px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: rgb(17,17,17);
 `
 
 export default WindowContainer;

@@ -121,6 +121,7 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     height: 100%;
+    background-color: white;
 `
 
 const ElementsContainer = styled.div`
@@ -135,6 +136,7 @@ const BackgroundContainer = styled.div`
     background-image: url('${LoginScreenWallpaper}');
     background-size: cover;
     background-position: center;
+    background-color: rgb(17,17,17);
     height: 100%;
     width: 100%;
     position: relative;

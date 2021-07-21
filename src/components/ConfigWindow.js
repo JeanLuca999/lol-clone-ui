@@ -66,6 +66,7 @@ function ConfigWindow({handleConfigOpen}) {
                 {currentConfigContent}
 
             </Config>
+
             <Exit onClick={handleConfigOpen}>
                 <ExitButton></ExitButton>
             </Exit>
@@ -76,14 +77,15 @@ function ConfigWindow({handleConfigOpen}) {
 export default ConfigWindow
 
 
+
 const Wrapper = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr 200px;
+    grid-template-columns: 1fr 1fr minmax(70px,200px);
     grid-template-rows: 1fr;
     z-index: 3;
 `
@@ -96,6 +98,7 @@ const About = styled.div`
     background-color: rgb(17,17,17);
     padding: 40px;
     position: relative;
+    margin-left: -3px;
 
     h3 {
         font-size: 11px;
@@ -145,8 +148,9 @@ const Config = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    
-    padding: 40px 0px;
+    margin-left: -3px;
+
+    padding: 40px;
     background-color: rgb(17,17,17);
 `
 
@@ -238,7 +242,8 @@ const ConfigTitle = styled.h2`
 
 const Select = styled.select`
     display: block;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     cursor: pointer;
     height: 40px;
     padding: 10px;
@@ -258,7 +263,6 @@ const Select = styled.select`
         font-weight: bold;
 
         option {
-            display: block;
             background-color: white;
             color: ${props => props.selected ? 'red' : 'black'};
             cursor: pointer;
