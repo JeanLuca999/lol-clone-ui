@@ -8,6 +8,7 @@ import lolLogo from '../assets/images/lol-logo.svg';
 import rightArrow from '../assets/images/right-arrow.svg';
 import rightArrowActive from '../assets/images/right-arrow-active.svg';
 import configIcon from '../assets/images/config-icon.svg';
+import ConfigWindow from "../components/ConfigWindow";
 
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ function LoginScreen() {
     const [keepLogged, setKeepLogged] = useState(false)
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const [isConfigOpen, setIsConfigOpen] = useState(false)
 
     function handleKeepLogged() {
         setKeepLogged(!keepLogged)
@@ -29,6 +31,12 @@ function LoginScreen() {
     function handlePassword(event) {
         setPassword(event.target.value)
     }
+
+    function handleConfigOpen() {
+        setIsConfigOpen(!isConfigOpen)
+    }
+
+    let configOpen = isConfigOpen ? <ConfigWindow></ConfigWindow> : ''
 
     return(
         <WindowContainer>
@@ -52,17 +60,17 @@ function LoginScreen() {
 
                     <IconsWrapper>
                         <Icon>
-                            <a href="https://facebook.com" target="_blank">
+                            <a href="https://facebook.com" target="_blank" rel="noreferrer">
                                 <img src={facebookIcon} alt="facebook"></img>
                             </a>
                         </Icon>
                         <Icon>
-                            <a href="https://mail.google.com" target="_blank">
+                            <a href="https://mail.google.com" target="_blank" rel="noreferrer">
                                 <img src={googleIcon} alt="google"></img>
                             </a>
                         </Icon>
                         <Icon>
-                            <a href="https://secure2.store.apple.com/" target="_blank">
+                            <a href="https://secure2.store.apple.com/" target="_blank" rel="noreferrer">
                                 <img src={appleIcon} alt="apple"></img>
                             </a>
                         </Icon>
@@ -72,8 +80,8 @@ function LoginScreen() {
                         <CheckBox keepLogged={keepLogged} onClick={handleKeepLogged}></CheckBox> Manter login
                     </KeepLogged>
                     {
-                        (password && userName) ? <ButtonLoginActive><img src={rightArrowActive}></img></ButtonLoginActive>
-                        : <ButtonLogin><img src={rightArrow}></img></ButtonLogin>
+                        (password && userName) ? <ButtonLoginActive><img src={rightArrowActive} alt="right arrow"></img></ButtonLoginActive>
+                        : <ButtonLogin><img src={rightArrow} alt="right arrow"></img></ButtonLogin>
                     }
 
                     <HelpSection>
@@ -89,11 +97,12 @@ function LoginScreen() {
                         <NavItem>?</NavItem>
                         <NavItem>X</NavItem>
                     </Nav>
-                    <ConfigIcon>
-                        <img src={configIcon}></img>
+                    <ConfigIcon onClick={handleConfigOpen}>
+                        <img src={configIcon} alt="config"></img>
                     </ConfigIcon>
                 </BackgroundContainer>
             </Wrapper>
+            {configOpen}
         </WindowContainer>
     )
 }
@@ -191,7 +200,8 @@ const Icon = styled.div`
     flex-grow: 1;
     background-color: black;
     text-align: center;
-    padding: 5px 0;
+    padding-top: 7px;
+    padding-bottom: 4px;
     margin-left: 5px;
     border-radius: 5px;
     display: flex;
@@ -226,6 +236,10 @@ const Icon = styled.div`
     img {
         width: 20px;
         height: 20px;
+    }
+
+    a {
+        display: block;
     }
 `
 
