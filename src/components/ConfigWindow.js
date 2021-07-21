@@ -28,6 +28,9 @@ function ConfigWindow() {
                     <option>Português</option>
                 </Select>
             </Config>
+            <Exit>
+                <ExitButton></ExitButton>
+            </Exit>
         </Wrapper>
     )
 }
@@ -41,7 +44,7 @@ const Wrapper = styled.div`
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr 400px;
+    grid-template-columns: 1fr 1fr 200px;
     grid-template-rows: 1fr;
     z-index: 3;
 `
@@ -85,7 +88,67 @@ const Config = styled.div`
     background-color: rgb(17,17,17);
 `
 
-const Exit = styled.div``
+const ExitButton = styled.button`
+    display: block;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    border: 0;
+    outline: 0;
+    font-size: 30px;
+    color: black;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 33px;
+        left: 20px;
+        width: 30px;
+        height: 4px;
+        border-radius: 5px;
+        transform: rotate(45deg);
+        background-color: rgb(126,126,126);
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 33px;
+        left: 20px;
+        width: 30px;
+        height: 4px;
+        border-radius: 5px;
+        transform: rotate(-45deg);
+        background-color: rgb(126,126,126);
+    }
+`
+
+const Exit = styled.div`
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255,255,255,0.1);
+
+        ${ExitButton} {
+            &::after {
+                background-color: rgb(51,51,51);
+            }
+
+            &::before {
+                background-color: rgb(51,51,51);
+            }
+        }
+    }
+`
 
 
 const RiotIcon = styled.div`
