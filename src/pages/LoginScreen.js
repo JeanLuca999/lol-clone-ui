@@ -36,7 +36,7 @@ function LoginScreen() {
         setIsConfigOpen(!isConfigOpen)
     }
 
-    let configOpen = isConfigOpen ? <ConfigWindow></ConfigWindow> : ''
+    let configOpen = isConfigOpen ? <ConfigWindow handleConfigOpen={handleConfigOpen}></ConfigWindow> : ''
 
     return(
         <WindowContainer>
@@ -97,7 +97,7 @@ function LoginScreen() {
                         <NavItem>?</NavItem>
                         <NavItem>X</NavItem>
                     </Nav>
-                    <ConfigIcon onClick={handleConfigOpen}>
+                    <ConfigIcon onClick={handleConfigOpen} isConfigOpen={isConfigOpen}>
                         <img src={configIcon} alt="config"></img>
                     </ConfigIcon>
                 </BackgroundContainer>
@@ -383,11 +383,11 @@ const NavItem = styled.button`
 `
 
 const ConfigIcon = styled.div`
+    display: ${props => props.isConfigOpen === false ? 'flex' : 'none'};
     width: 30px;
     height: 30px;
     border-radius: 5px;
     background-color: rgba(255,255,255,0.4);
-    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;

@@ -1,8 +1,41 @@
+import { useState } from "react";
 import styled from "styled-components";
 import riotIcon from '../assets/images/riot-icon.svg'
 
 
-function ConfigWindow() {
+function ConfigWindow({handleConfigOpen}) {
+
+    let leagueOfLegendsContent = (
+        <>
+            <SelectTitle>patchline atual</SelectTitle>
+            <Select>
+                <option>LIVE (BR)</option>
+                <option>PBE</option>
+            </Select>
+
+            <SelectTitle>idioma do jogo</SelectTitle>
+            <Select>
+                <option>Português</option>
+            </Select>
+        </>
+    )
+
+    let geralContent = (
+        <>
+            <SelectTitle>idioma do jogo</SelectTitle>
+            <Select>
+                <option>Português</option>
+            </Select>
+        </>
+    )
+
+    const [currentConfigContent, setCurrentConfigContent] = useState(leagueOfLegendsContent)
+
+    function handleCurrentContent(content) {
+        setCurrentConfigContent(content)
+    }
+
+    const [isInLeagueOfLegendsContent, setIsInLeagueOfLegendsContent] = useState(true)
 
     return (
         <Wrapper>
@@ -10,25 +43,28 @@ function ConfigWindow() {
                 <RiotIcon>
                     <img src={riotIcon} alt="riot icon"></img>
                 </RiotIcon>
-                <h2>geral</h2>
-                <h2>league of legends</h2>
+
+                <CurrentTitleSection 
+                    onClick={() => {handleCurrentContent(geralContent); setIsInLeagueOfLegendsContent(false)}}
+                    current={!isInLeagueOfLegendsContent}>
+                    geral
+                </CurrentTitleSection>
+
+                <CurrentTitleSection 
+                    onClick={() => {handleCurrentContent(leagueOfLegendsContent); setIsInLeagueOfLegendsContent(true)}}
+                    current={isInLeagueOfLegendsContent}>
+                    league of legends
+                </CurrentTitleSection>
+
             </About>
 
             <Config>
                 <ConfigTitle>configurações</ConfigTitle>
 
-                <SelectTitle>patchline atual</SelectTitle>
-                <Select>
-                    <option>LIVE (BR)</option>
-                    <option>PBE</option>
-                </Select>
+                {currentConfigContent}
 
-                <SelectTitle>idioma do jogo</SelectTitle>
-                <Select>
-                    <option>Português</option>
-                </Select>
             </Config>
-            <Exit>
+            <Exit onClick={handleConfigOpen}>
                 <ExitButton></ExitButton>
             </Exit>
         </Wrapper>
@@ -56,25 +92,17 @@ const About = styled.div`
     justify-content: flex-start;
     background-color: rgb(17,17,17);
     padding: 40px;
+`
 
-    h2 {
-        font-size: 17px;
-        text-transform: uppercase;
-        font-weight: 900;
-        color: rgb(126,126,108);
-        margin-bottom: 5px;
-        cursor: pointer;
-
-        &:nth-child(2) {
-            &:hover {
-                color: white;
-            }
-        }
-
-        &:nth-child(3) {
-            color: rgb(209,42,35);
-
-        }
+const CurrentTitleSection = styled.h2`
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: ${props => props.current ? 'rgb(209,54,57)' : 'rgb(126,126,126)'};
+    margin-bottom: 5px;
+    cursor: pointer;
+    &:hover {
+        color: ${props => props.current === false ? 'white' : ''};
     }
 `
 
