@@ -316,8 +316,13 @@ const HelpSection = styled.div`
     width: 288px;
     position: relative;
     margin-top: 68px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 
     h3 {
+        display: inline-block;
         text-transform: uppercase;
         font-size: 10px;
         text-align: center;
@@ -335,9 +340,9 @@ const HelpSection = styled.div`
 const Version = styled.h3`
     position: absolute;
     right: 0;
-
+    margin-top: 20px;
     &:hover, &:focus {
-        color: rgb(231,231,231);
+        color: rgb(142,126,126) !important;
     }
 `
 
@@ -356,7 +361,8 @@ const NavItem = styled.button`
     width: 40px;
     height: 40px;
     cursor: pointer;
-
+    position: relative;
+    z-index: 4;
     &:hover {
         background-color: rgba(255,255,255,0.1);
     }
