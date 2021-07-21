@@ -101,7 +101,7 @@ const About = styled.div`
     margin-left: -3px;
 
     h3 {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 900;
         text-transform: uppercase;
         color: rgb(126,126,126);
