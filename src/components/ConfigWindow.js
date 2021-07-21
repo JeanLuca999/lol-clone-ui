@@ -56,6 +56,8 @@ function ConfigWindow({handleConfigOpen}) {
                     league of legends
                 </CurrentTitleSection>
 
+                <h3>terceiros</h3>
+                <h3>v36.0.0</h3>
             </About>
 
             <Config>
@@ -72,6 +74,7 @@ function ConfigWindow({handleConfigOpen}) {
 }
 
 export default ConfigWindow
+
 
 const Wrapper = styled.div`
     position: absolute;
@@ -92,6 +95,37 @@ const About = styled.div`
     justify-content: flex-start;
     background-color: rgb(17,17,17);
     padding: 40px;
+    position: relative;
+
+    h3 {
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: rgb(126,126,126);
+        cursor: pointer;
+        position: absolute;
+
+        &:hover {
+            color: white;
+        }
+
+        &:nth-of-type(1) {
+            left: 0;
+            bottom: 0;
+            margin: 40px;
+        }
+
+        &:nth-of-type(2) {
+            color: rgba(126,126,126,0.6);
+            right: 0;
+            bottom: 0;
+            margin: 40px;
+
+            &:hover {
+                color: rgb(126,126,126);
+            }
+        }
+    }
 `
 
 const CurrentTitleSection = styled.h2`
