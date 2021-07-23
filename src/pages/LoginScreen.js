@@ -80,8 +80,10 @@ function LoginScreen() {
                         <CheckBox keepLogged={keepLogged} onClick={handleKeepLogged}></CheckBox> Manter login
                     </KeepLogged>
                     {
-                        (password && userName) ? <ButtonLoginActive><img src={rightArrowActive} alt="right arrow"></img></ButtonLoginActive>
-                        : <ButtonLogin><img src={rightArrow} alt="right arrow"></img></ButtonLogin>
+                        (password && userName) && <ButtonLoginActive><img src={rightArrowActive} alt="Login button"></img></ButtonLoginActive>
+                    }
+                    {
+                        (!password || !userName) && <ButtonLogin><img src={rightArrow} alt="Login button"></img></ButtonLogin>
                     }
 
                     <HelpSection>
@@ -93,7 +95,7 @@ function LoginScreen() {
                 </ElementsContainer>
                 <BackgroundContainer>
                     <Nav>
-                        <NavItem active={true}></NavItem>
+                        <NavItem></NavItem>
                         <NavItem>?</NavItem>
                         <NavItem>X</NavItem>
                     </Nav>
@@ -365,15 +367,18 @@ const NavItem = styled.button`
     cursor: pointer;
     position: relative;
     z-index: 4;
+
     &:hover {
         background-color: rgba(255,255,255,0.1);
     }
+
     &:nth-child(1) {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${props => props.active ? 'rgba(255,255,255,0.1)' : '' };
+        background-color: rgba(255,255,255,0.1);
+
         &::after {
             content: '';
             display: block;
@@ -383,6 +388,7 @@ const NavItem = styled.button`
             background-color: white;
         }
     }
+
     &:nth-child(3) {
         &:hover {
             background-color: rgb(209,54,57);

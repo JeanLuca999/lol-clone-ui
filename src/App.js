@@ -1,9 +1,11 @@
 import LoginScreen from "./pages/LoginScreen";  
+import GlobalStyle from './components/GlobalStyle'
 
 function App() {
   return (
     <>
-      <LoginScreen></LoginScreen>
+      <GlobalStyle />
+      <LoginScreen />
     </>
   )
 }

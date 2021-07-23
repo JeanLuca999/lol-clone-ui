@@ -8,9 +8,9 @@ function ConfigWindow({handleConfigOpen}) {
     let leagueOfLegendsContent = (
         <>
             <SelectTitle>patchline atual</SelectTitle>
-            <Select>
-                <option>LIVE (BR)</option>
-                <option>PBE</option>
+            <Select defaultValue={"live-br"}>
+                <option value="live-br">LIVE (BR)</option>
+                <option value="pbe">PBE</option>
             </Select>
 
             <SelectTitle>idioma do jogo</SelectTitle>
@@ -264,13 +264,13 @@ const Select = styled.select`
 
         option {
             background-color: white;
-            color: ${props => props.selected ? 'red' : 'black'};
+            color: black;
             cursor: pointer;
         }
     }
 
     option {
-        color: ${props => props.selected ? 'red' : 'rgb(206,206,206)'};
+        color: rgb(206,206,206);
         font-weight: bold;
         cursor: pointer;
     }
