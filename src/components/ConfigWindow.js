@@ -8,9 +8,9 @@ function ConfigWindow({handleConfigOpen}) {
     let leagueOfLegendsContent = (
         <>
             <SelectTitle>patchline atual</SelectTitle>
-            <Select defaultValue={"live-br"}>
-                <option value="live-br">LIVE (BR)</option>
-                <option value="pbe">PBE</option>
+            <Select>
+                <option>LIVE (BR)</option>
+                <option>PBE</option>
             </Select>
 
             <SelectTitle>idioma do jogo</SelectTitle>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import WindowContainer from "../components/WindowContainer";
-import LoginScreenWallpaper from '../assets/images/lol-wallpaper.svg'
+import WindowContainer from "./WindowContainer";
+import LoginScreenWallpaper from '../assets/images/client-wallpaper.jpg'
 import facebookIcon from '../assets/images/facebook-icon.svg';
 import googleIcon from '../assets/images/google-icon.svg';
 import appleIcon from '../assets/images/apple-icon.svg';
@@ -8,7 +8,7 @@ import lolLogo from '../assets/images/lol-logo.svg';
 import rightArrow from '../assets/images/right-arrow.svg';
 import rightArrowActive from '../assets/images/right-arrow-active.svg';
 import configIcon from '../assets/images/config-icon.svg';
-import ConfigWindow from "../components/ConfigWindow";
+import ConfigWindow from "./ConfigWindow";
 
 import { useState } from "react";
 
@@ -138,6 +138,7 @@ const BackgroundContainer = styled.div`
     background-image: url('${LoginScreenWallpaper}');
     background-size: cover;
     background-position: center;
+    background-position-x: -320px;
     background-color: rgb(17,17,17);
     height: 100%;
     width: 100%;

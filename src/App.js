@@ -1,4 +1,4 @@
-import LoginScreen from "./pages/LoginScreen";  
+import LoginScreen from './components/LoginScreen';  
 import GlobalStyle from './components/GlobalStyle'
 
 function App() {
