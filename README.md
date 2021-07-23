@@ -9,7 +9,6 @@ Este projeto consiste em uma cópia da interface de login do client do league of
 
  ## 💽 Como Rodar o Projeto
  O projeto foi criado utilizando create-react-app, então basta usar o comando npm start
->>>>>>> 98424998f100785e1ded3f70ae81ae43a902c802
 
  ## 💻 Preview do Projeto
 
