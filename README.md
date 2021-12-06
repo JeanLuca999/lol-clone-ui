@@ -8,7 +8,8 @@ Este projeto consiste em uma cópia da interface de login do client do league of
  * Styled Components
 
  ## 💽 Como Rodar o Projeto
- O projeto foi criado utilizando `create-react-app`, então basta usar o comando `npm start` para inicializar.
+ para baixar as dependências utilize `npm install` <br>
+ utilize o comando `npm start` para inicializar.
 
  ## 💻 Preview do Projeto
 
